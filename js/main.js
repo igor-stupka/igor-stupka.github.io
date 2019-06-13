@@ -14,7 +14,7 @@ function initMap(gmap) {
     lng: 30.343218
   };
   var map = new google.maps.Map(gmap, {
-    zoom: 18,
+    zoom: 14,
     center: coordinates
   });
   var marker = new google.maps.Marker({
