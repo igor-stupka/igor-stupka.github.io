@@ -41,11 +41,11 @@ function initMap(gmap) {
 
   document.querySelector('.route').onclick = function () {
     calculateRoute();
+    document.querySelector('.details__surprise').style.display = 'block'
   };
 }
 
 window.addEventListener('load', function () {
-  var mapWidjet = document.querySelector('#map');
-  if (mapWidjet) initMap(mapWidjet);
+   initMap(document.querySelector('#map'));
 });
 "use strict";
