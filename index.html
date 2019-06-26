@@ -392,6 +392,13 @@
       	: t.attachEvent 
       	? t.attachEvent("onload", function() { c(r.scripts) }) 
       	: t.onload = function() { c(r.scripts) } } (window, document, scr);
+      
+    </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+      	console.log('sw');
+      	navigator.serviceWorker.register('sw.js');
+      }
     </script>
   </body>
 </html>
