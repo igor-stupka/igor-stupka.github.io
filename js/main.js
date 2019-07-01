@@ -1,7 +1,7 @@
 "use strict";
 
 setTimeout(function () {
-  var mySwiper = new Swiper('.js-stock__carousel', {
+  new Swiper('.js-stock__carousel', {
     loop: true,
     slidesPerView: 3,
     spaceBetween: 30,
@@ -11,6 +11,147 @@ setTimeout(function () {
     }
   });
 }, 300);
+"use strict";
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Nav =
+/*#__PURE__*/
+function () {
+  function Nav(subitem) {
+    var _this = this;
+
+    _classCallCheck(this, Nav);
+
+    this.subitem = subitem;
+    this.menu = this.subitem.querySelector('.js-sm');
+    this.menuItems = this.menu.querySelectorAll('.js-nav-item');
+    this.menuGroups = this.menu.querySelectorAll('.js-group');
+    this.bg = document.querySelector('.js-nav-bg');
+    this.subitem.addEventListener('mouseover', function () {
+      return _this.subitem.classList.add('hovered');
+    });
+    this.subitem.addEventListener('mouseout', function () {
+      return _this.subitem.classList.remove('hovered');
+    });
+    this.menu.addEventListener('mouseover', function () {
+      return _this.bg.style.display = 'block';
+    });
+    this.menu.addEventListener('mouseout', function () {
+      return _this.bg.style.display = 'none';
+    });
+    this.menuItems.forEach(function (item) {
+      var link = item.dataset.group;
+      item.addEventListener('mouseover', function () {
+        _this.hover(link, item);
+      });
+    });
+  }
+
+  _createClass(Nav, [{
+    key: "hover",
+    value: function hover(link, li) {
+      this.menuGroups.forEach(function (group) {
+        var groupName = group.getAttribute('id');
+
+        if (groupName == link) {
+          group.addEventListener('mouseover', function () {
+            li.classList.add('hovered');
+          });
+          group.addEventListener('mouseout', function () {
+            li.classList.remove('hovered');
+          });
+          group.style.display = 'block';
+        } else {
+          group.style.display = 'none';
+        }
+      });
+    }
+  }]);
+
+  return Nav;
+}();
+
+_toConsumableArray(document.querySelectorAll('.js-submenu')).forEach(function (subitem) {
+  return new Nav(subitem);
+});
+"use strict";
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Ratings =
+/*#__PURE__*/
+function () {
+  function Ratings(item) {
+    var _this = this;
+
+    _classCallCheck(this, Ratings);
+
+    this.parent = item;
+    this.prevBtn = item.querySelector('.rating__prev');
+    this.nextBtn = item.querySelector('.rating__next');
+    this.titles = _toConsumableArray(item.querySelectorAll('.rating__caption'));
+    this.lists = _toConsumableArray(item.querySelectorAll('.rating__list'));
+    this.active = 0;
+    this.nextBtn.addEventListener('click', function () {
+      return _this.itter(_this.chkr(++_this.active));
+    });
+    this.prevBtn.addEventListener('click', function () {
+      return _this.itter(_this.chkr(--_this.active));
+    });
+  }
+
+  _createClass(Ratings, [{
+    key: "itter",
+    value: function itter(i) {
+      var cls = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'active';
+      this.lists.forEach(function (item) {
+        return item.classList.remove(cls);
+      });
+      this.lists[i].classList.add(cls);
+      this.titles.forEach(function (item) {
+        return item.classList.remove(cls);
+      });
+      this.titles[i].classList.add(cls);
+    }
+  }, {
+    key: "chkr",
+    value: function chkr() {
+      if (this.active < 0) this.active = 0;else if (this.active > this.lists.length - 1) this.active = this.lists.length - 1;else this.active;
+      return this.active;
+    }
+  }]);
+
+  return Ratings;
+}();
+
+_toConsumableArray(document.querySelectorAll('.rating__rating')).forEach(function (item) {
+  return new Ratings(item);
+});
 "use strict";
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
