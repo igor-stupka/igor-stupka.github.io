@@ -419,40 +419,15 @@ var Nav = function Nav(subitem) {
   _classCallCheck(this, Nav);
 
   this.subitem = subitem;
-  this.menu = this.subitem.querySelector('.js-sm'); // this.menuItems = this.menu.querySelectorAll('.js-nav-item');
-  // this.menuGroups = this.menu.querySelectorAll('.js-group');
-
-  this.bg = document.querySelector('.js-nav-bg'); // this.subitem.addEventListener('mouseover', () => this.subitem.classList.add('hovered'));
-  // this.subitem.addEventListener('mouseout', () => this.subitem.classList.remove('hovered'));
-
+  this.menu = this.subitem.querySelector('.js-sm');
+  this.bg = document.querySelector('.js-nav-bg');
   this.menu.addEventListener('mouseover', function () {
     return _this.bg.style.display = 'block';
   });
   this.menu.addEventListener('mouseout', function () {
     return _this.bg.style.display = 'none';
-  }); // this.menuItems.forEach(item => {
-  //   let link = item.dataset.group;
-  //   item.addEventListener('mouseover', () => {
-  //     this.hover(link, item)
-  //   });
-  // });
-} // hover(link, li) {
-//   this.menuGroups.forEach(group => {
-//     let groupName = group.getAttribute('id')
-//     if (groupName == link) {
-//       group.addEventListener('mouseover', () => {
-//         li.classList.add('hovered')
-//       });
-//       group.addEventListener('mouseout', () => {
-//         li.classList.remove('hovered')
-//       });
-//       group.style.display = 'block';
-//     } else {
-//       group.style.display = 'none';
-//     }
-//   });
-// }
-;
+  });
+};
 
 _toConsumableArray(document.querySelectorAll('.nav__item--submenu')).forEach(function (subitem) {
   return new Nav(subitem);
