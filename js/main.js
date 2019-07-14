@@ -149,8 +149,9 @@ selects.forEach(function (select) {
     return option.dataset.active;
   });
   currentText.innerText = activeOptions.length ? activeOptions[0].innerText : options[0].innerText;
-  current.addEventListener('click', function () {
-    return new_.classList.toggle('opened');
+  current.addEventListener('click', function (e) {
+    e.preventDefault();
+    new_.classList.toggle('opened');
   });
   var options_ = document.createElement('div');
   options_.classList.add("".concat(cls, "__options"));
@@ -173,7 +174,9 @@ selects.forEach(function (select) {
       opt.classList.add("".concat(optionClasses));
     }
 
-    opt.onclick = function () {
+    opt.onclick = function (e) {
+      e.preventDefault();
+
       if (!opt.classList.contains('select__emptOpt')) {
         _toConsumableArray(new_.querySelectorAll('.select__option')).forEach(function (optn) {
           return optn.classList.remove('active');
