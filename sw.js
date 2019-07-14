@@ -16,6 +16,12 @@ const URLS_OVER_NETWORK_WITH_CACHE_FALLBACK = [
     "/img/net.png",
     "/img/sprite.svg",
     "/img/first.jpg",
+    "/img/w/w1.jpg",
+    "/img/w/w2.jpg",
+    "/img/w/w3.jpg",
+    "/img/w/w4.jpg",
+    "/img/w/w5.jpg",
+    "/img/w/w6.jpg",
 ];
 
 self.addEventListener("install", function(event) {
