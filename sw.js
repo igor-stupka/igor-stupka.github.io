@@ -2,8 +2,9 @@ const CACHE_NAME = 'AST-3';
 const URLS_CACHE_ONLY = [
     "/fonts/montserrat-v13-cyrillic_latin-900.woff2",
     "/fonts/montserrat-v13-cyrillic_latin-regular.woff2",
-    "/img/icons/favicon.jpg",
-    "/img/icons/webclip.jpg"
+    "/img/icons/webclip192.png",
+    "/img/icons/webclip256.png",
+    "/img/icons/webclip512.png"
 ];
 
 const URLS_OVER_NETWORK_WITH_CACHE_FALLBACK = [
