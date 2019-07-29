@@ -372,4 +372,6 @@ var offLineNotification = function offLineHandler() {
 }();
 
 navigator.connection.addEventListener('change', offLineNotification());
-window.navigator.vibrate([100, 30, 100, 30, 100, 200, 200, 30, 200, 30, 200, 200, 100, 30, 100, 30, 100]);
+document.body.click(function () {
+  window.navigator.vibrate([100, 30, 100, 30, 100, 200, 200, 30, 200, 30, 200, 200, 100, 30, 100, 30, 100]);
+});
