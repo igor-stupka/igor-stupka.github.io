@@ -346,6 +346,14 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 });
 "use strict";
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 setTimeout(function () {
   var slider = tns({
     container: '.js-stock__tns',
@@ -368,7 +376,7 @@ setTimeout(function () {
     }
   });
   var rating1 = tns({
-    container: '.rating__swiper1',
+    container: '.js-rating__swiper1',
     items: 1,
     slideBy: 'page',
     mouseDrag: true,
@@ -380,7 +388,7 @@ setTimeout(function () {
     nav: false
   });
   var rating2 = tns({
-    container: '.rating__swiper2',
+    container: '.js-rating__swiper2',
     items: 1,
     slideBy: 'page',
     mouseDrag: true,
@@ -392,14 +400,37 @@ setTimeout(function () {
     nav: false
   });
 }, 100);
-var lensButton = document.querySelector('#lens');
 var serchBar = document.querySelector('#search-bar');
+var lensButton = document.querySelector('#lens');
+var burger = document.querySelector('#burger');
+var nav = document.querySelector('#nav');
+var inputSearch = document.querySelector('#searcher');
+
+var rubrics = _toConsumableArray(document.querySelectorAll('.nav__item--submenu')); // const blur = document.querySelector('.js-nav-bg');
+
+
+var closeMenu = function closeMenu() {
+  burger.classList.remove('open');
+  nav.classList.remove('open');
+};
+
+var closeSearch = function closeSearch() {
+  serchBar.classList.remove('open');
+};
+
 lensButton.addEventListener('click', function () {
   serchBar.classList.toggle('open');
+  inputSearch.focus();
+  closeMenu();
 });
-var burger = document.querySelector('#burger');
 burger.addEventListener('click', function () {
   burger.classList.toggle('open');
+  nav.classList.toggle('open'); // blur.classList.toggle('open');
+
+  closeSearch();
+});
+rubrics.forEach(function (rubric) {
+  rubric.querySelector('.nav__item-caption').addEventListener('click', function () {});
 });
 "use strict";
 
@@ -537,10 +568,10 @@ discounts.forEach(function (discount) {
 
   if (res >= 0) {
     discount.querySelector('.js-deadline').innerHTML = 'осталось ' + res + ' ' + declOfNum(res, ['день', 'дня', 'дней']);
-    discount.querySelector('.stock__progress-bar').style.width = percentage + '%';
+    discount.querySelector('.js-progress').style.width = percentage + '%';
   } else {
     discount.querySelector('.js-deadline').innerHTML = res * -1 + ' ' + declOfNum(res * -1, ['день', 'дня', 'дней']) + ' назад';
-    discount.querySelector('.stock__progress-bar').style.width = '100%';
+    discount.querySelector('.js-progress').style.width = '100%';
     discount.querySelector('.js-deadline').style.color = 'red';
   }
 });
