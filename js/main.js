@@ -406,8 +406,9 @@ var burger = document.querySelector('#burger');
 var nav = document.querySelector('#nav');
 var inputSearch = document.querySelector('#searcher');
 
-var rubrics = _toConsumableArray(document.querySelectorAll('.nav__item--submenu')); // const blur = document.querySelector('.js-nav-bg');
+var rubrics = _toConsumableArray(document.querySelectorAll('.nav__item--submenu'));
 
+var goBackButton = document.querySelector('.nav__back');
 
 var closeMenu = function closeMenu() {
   burger.classList.remove('open');
@@ -418,19 +419,33 @@ var closeSearch = function closeSearch() {
   serchBar.classList.remove('open');
 };
 
+function goHomeNav() {
+  nav.classList.remove('swiped');
+  rubrics.forEach(function (rubric) {
+    return rubric.querySelector('.nav__sm').classList.remove('active');
+  });
+}
+
 lensButton.addEventListener('click', function () {
   serchBar.classList.toggle('open');
   inputSearch.focus();
   closeMenu();
 });
 burger.addEventListener('click', function () {
+  document.body.classList.toggle('overflow');
   burger.classList.toggle('open');
-  nav.classList.toggle('open'); // blur.classList.toggle('open');
-
+  nav.classList.toggle('open');
   closeSearch();
+  goHomeNav();
+});
+goBackButton.addEventListener('click', function () {
+  return goHomeNav();
 });
 rubrics.forEach(function (rubric) {
-  rubric.querySelector('.nav__item-caption').addEventListener('click', function () {});
+  rubric.querySelector('.nav__item-caption').addEventListener('click', function () {
+    nav.classList.add('swiped');
+    rubric.querySelector('.nav__sm').classList.add('active');
+  });
 });
 "use strict";
 
@@ -473,18 +488,18 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
-var selects = _toConsumableArray(document.querySelectorAll('select'));
+var selects = _toConsumableArray(document.querySelectorAll('.select'));
 
 selects.forEach(function (select) {
-  var options = _toConsumableArray(select.querySelectorAll('option'));
+  var options = _toConsumableArray(select.querySelectorAll('.option'));
 
   var cls = 'select';
   var new_ = document.createElement('div');
   new_.classList = [].concat(_toConsumableArray(select.classList), [cls]).join(' ');
   var input = document.createElement('input');
-  input.name = select.name;
+  input.name = select.dataset.name;
   input.type = 'hidden';
-  input.value = options[0].value;
+  input.value = options[0].innerText;
   var arrow = document.createElement('div');
   arrow.classList.add("".concat(cls, "__arrow"));
 
@@ -510,6 +525,8 @@ selects.forEach(function (select) {
   options.forEach(function (option) {
     var optionClasses = option.className;
     var opt = document.createElement('button');
+    var opionAttr = option.getAttribute('aria-label');
+    if (opionAttr !== null) opt.setAttribute('aria-label', opionAttr);
     opt.innerText = option.innerText;
     opt.classList.add("".concat(cls, "__option"));
     Object.keys(option.dataset).map(function (key) {
@@ -535,7 +552,7 @@ selects.forEach(function (select) {
         });
 
         opt.classList.add('active');
-        input.value = opt.closest('form') ? option.innerText : option.value;
+        input.value = opt.dataset.value ? opt.dataset.value : option.innerText;
         currentText.innerText = option.innerText;
         current.click();
       }
@@ -627,7 +644,18 @@ function () {
 
         _this.itter(_this.tabs, i);
       });
-    });
+    }); // for (let i = 0, count = 0; i < this.nav.length; i++) {
+    //   this.nav[i].addEventListener('click', () => {
+    //     if (i > this.tabs.length-1) {
+    //       this.itter(this.nav, count);
+    //       this.itter(this.tabs, count);
+    //       count++;
+    //     }  else {
+    //       this.itter(this.nav, i);
+    //       this.itter(this.tabs, i);
+    //     } 
+    //   })
+    // }
   }
 
   _createClass(Tabs, [{
@@ -635,7 +663,7 @@ function () {
     value: function itter(arr, v) {
       var cls = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'active';
       arr.forEach(function (item, i) {
-        return i == v ? item.classList.add(cls) : item.classList.remove(cls);
+        if (i == v) item.classList.add(cls);else item.classList.remove(cls);
       });
     }
   }]);
