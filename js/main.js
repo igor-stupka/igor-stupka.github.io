@@ -523,7 +523,7 @@ selects.forEach(function (select) {
   var options_ = document.createElement('div');
   options_.classList.add("".concat(cls, "__options"));
   options.forEach(function (option) {
-    var optionClasses = option.className;
+    var optionClasses = option.classList;
     var opt = document.createElement('button');
     var opionAttr = option.getAttribute('aria-label');
     if (opionAttr !== null) opt.setAttribute('aria-label', opionAttr);
@@ -539,8 +539,10 @@ selects.forEach(function (select) {
       }
     });
 
-    if (optionClasses) {
-      opt.classList.add("".concat(optionClasses));
+    if (optionClasses.length) {
+      optionClasses.forEach(function (className) {
+        opt.classList.add(className);
+      });
     }
 
     opt.onclick = function (e) {
@@ -640,31 +642,28 @@ function () {
     this.tabs = _toConsumableArray(item.querySelectorAll('.js-tabs__tab'));
     this.nav.forEach(function (item, i) {
       return item.addEventListener('click', function () {
-        _this.itter(_this.nav, i);
+        var tab = item.dataset.href.substring(1);
+        var tabEl = document.getElementById(tab);
 
-        _this.itter(_this.tabs, i);
+        if (tabEl) {
+          _this.bindClick(_this.nav, item);
+
+          _this.bindClick(_this.tabs, tabEl);
+        } else {
+          console.log('target not found');
+        }
       });
-    }); // for (let i = 0, count = 0; i < this.nav.length; i++) {
-    //   this.nav[i].addEventListener('click', () => {
-    //     if (i > this.tabs.length-1) {
-    //       this.itter(this.nav, count);
-    //       this.itter(this.tabs, count);
-    //       count++;
-    //     }  else {
-    //       this.itter(this.nav, i);
-    //       this.itter(this.tabs, i);
-    //     } 
-    //   })
-    // }
+    });
   }
 
   _createClass(Tabs, [{
-    key: "itter",
-    value: function itter(arr, v) {
+    key: "bindClick",
+    value: function bindClick(arr, el) {
       var cls = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'active';
-      arr.forEach(function (item, i) {
-        if (i == v) item.classList.add(cls);else item.classList.remove(cls);
+      arr.forEach(function (itm) {
+        return itm.classList.remove(cls);
       });
+      el.classList.add(cls);
     }
   }]);
 
