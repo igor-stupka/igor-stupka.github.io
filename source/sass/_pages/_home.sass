@@ -1,0 +1,436 @@
+.first
+	padding: 50px 0
+	min-height: 100vh
+	+flex(stretch, center)
+	background: #fff image('spot1.svg') no-repeat 10% 50%
+	line-height: 1.5
+	@media (max-width: $tablet)
+		min-height: 1px
+		-webkit-background-size: 230px
+		background-size: 230px
+		background-position: -115% 75%
+	&__
+		&row
+			display: flex
+			align-items: center
+			@media (max-width: $tablet)
+				flex-direction: column-reverse
+		&r
+			max-width: 470px
+			p
+				font-weight: 500
+				+responsive-font(1.8vw, 15px, 35px)
+				b
+					text-transform: uppercase
+					+responsive-font(1.8vw, 20px, 35px)
+					color: #f74037
+					font-weight: 900
+					display: block
+			@media (max-width: $tablet)
+				padding: 0 20px
+				margin-bottom: 30px
+
+.good
+	background: rgba(#C4C4C4 ,.3)
+	padding: 140px 0 120px
+	margin-bottom: 205px
+	line-height: 1.5
+	@media (max-width: $tablet)
+		padding: 40px 0 50px
+		margin-bottom: 0
+	&__
+		&row
+			+flex(stretch, center)
+			@media (max-width: $tablet)
+				flex-direction: column
+				align-items: center
+		&l
+			width: 51%
+			@media (max-width: $tablet)
+				margin-bottom: 15px
+				width: 100%
+				text-align: center
+			p
+				color: rgba(0, 0, 0, 0.7)
+				+responsive-font(1.8vw, 15px, 35px)
+				font-weight: 500
+			b
+				text-transform: uppercase
+				+responsive-font(1.8vw, 16px, 35px)
+				font-weight: 900
+				color: #7DC249
+		&r
+			position: relative
+			max-width: 720px
+			width: 49%
+			@media (max-width: $tablet)
+				max-width: 500px
+				width: 100%
+				margin: 0 auto
+			img
+				position: absolute
+				+centerer
+				@media (max-width: $tablet)
+					position: static
+					transform: translate(0, 0)
+
+.advise
+	padding: 135px 0 250px
+	position: relative
+	background: image('spot4.svg') no-repeat 14% 59%
+	overflow: hidden
+	@media (max-width: $tablet)
+		padding: 35px 0 80px
+		-webkit-background-size: 300px
+		background-size: 300px
+		background-position: -100px 16%
+	&::before
+		content: image('spot2.svg')
+		position: absolute
+		top: 0
+		left: 0
+		@media (max-width: $tablet)
+			top: -320px
+			transform: scale(.3) translateX(-117%)
+			opacity: .3
+	&::after
+		content: image('spot3.svg')
+		position: absolute
+		top: auto
+		right: 0
+		@media (max-width: $tablet)
+			top: auto
+			bottom: 40%
+			transform: scale(.5) translateX(90%)
+	.card
+		padding: 100px 230px
+		margin-bottom: 170px
+		@media (max-width: $desktop)
+			padding: 70px 100px
+		@media (max-width: 1100px)
+			padding: 40px 25px
+			margin-bottom: 85px
+		&::before
+			content: attr(data-num)
+			font-size: 100px
+			font-weight: bold
+			color: #FFF
+			text-shadow: 0px -2px 25px rgba(9, 166, 182, 0.25)
+			position: absolute
+			bottom: calc(100% - 9px)
+			left: 30px
+			line-height: 1
+			opacity: .6
+			@media (max-width: $tablet)
+				font-size: 50px
+				bottom: calc(100% - 7px)
+	&__
+		&adv
+			+responsive-font(1.6vw, 15px, 30px)
+			font-weight: 600
+			max-width: 740px
+			display: block
+			margin: 0 auto 200px
+			@media (max-width: $tablet)
+				margin-bottom: 90px
+		&row
+			padding-top: 15px
+			+flex(space-between, center)
+			@media (max-width: $tablet)
+				flex-direction: column
+			&::after
+				content: image('spot5.svg')
+				position: absolute
+				bottom: 0
+				right: 0
+				z-index: -1
+				@media (max-width: $tablet)
+					//display: none
+		&l
+			width: 50%
+			position: relative
+			@media (max-width: $tablet)
+				max-width: 400px
+			@media (max-width: $mobile)
+				width: 140%
+			img
+				+centerer
+				z-index: 2
+				@media (max-width: $tablet)
+					position: static
+					transform: translate(0, 0)
+					max-width: 100%
+			&::before
+				content: image('spotB.svg')
+				position: absolute
+				top: -40px
+				left: -18%
+		&r
+			max-width: 680px
+			width: 100%
+			+responsive-font(1.6vw, 15px, 20px)
+			position: relative
+			&::before
+				content: attr(data-num)
+				font-size: 100px
+				font-weight: bold
+				color: #FFF
+				text-shadow: 0px -2px 25px rgba(9, 166, 182, 0.25)
+				position: absolute
+				bottom: calc(100% + 30px)
+				left: 0
+				line-height: 1
+				opacity: .6
+				@media (max-width: $tablet)
+					font-size: 50px
+					bottom: calc(100% + 200px)
+
+.card
+	background: rgba(#FFF, .6)
+	box-shadow: 0px -2px 25px rgba(9, 166, 182, 0.25)
+	border-radius: 20px
+	position: relative
+	z-index: 2
+	+responsive-font(1.2vw, 15px, 20px)
+	
+	
+	&__
+		&row
+			+flex(space-between, center)
+			@media (max-width: $tablet)
+				flex-direction: column
+				align-items: center
+		&l
+			margin-right: 80px
+			max-width: 370px
+			width: 100%
+			@media (max-width: $tablet)
+				margin: 0 0 27px
+		&r
+			max-width: 450px
+			width: 100%
+		&move-text
+			+responsive-font(1.3vw, 15px, 25px)
+			display: block
+			margin-bottom: 38px
+		&move-img-wrap
+			background-color: #fff
+			max-width: 730px
+			margin: 0 auto
+			text-align: center
+			
+.section-title
+	text-align: center
+	+responsive-font(2.2vw, 20px, 40px)
+	line-height: 1.5
+	font-weight: 500
+	margin-bottom: 110px
+	position: relative
+	z-index: 2
+	@media (max-width: $tablet)
+		margin-bottom: 20px
+	b
+		font-weight: 900
+.move
+	position: relative
+	padding-bottom: 120px
+	background: image('spot8.svg') no-repeat right bottom
+	overflow: hidden
+	@media (max-width: $tablet)
+		background-size: 250px
+	&::before
+		content: image('spot6.svg')
+		position: absolute
+		top: 0
+		transform: translateY(-30%)
+		left: 0
+		max-width: 100%
+		@media (max-width: $tablet)
+			top: 80px
+	&::after
+		content: image('spot7.svg')
+		position: absolute
+		top: 55%
+		left: 0
+		@media (max-width: $tablet)
+			transform: scale(.7) translateX(-80%)
+			opacity: .3
+	.section-title
+		max-width: 800px
+		width: 100%
+		margin-left: auto
+		margin-right: auto
+	.card
+		padding: 80px 190px 100px
+		@media (max-width: $tablet)
+			padding: 20px
+	&__
+		&moves
+			max-width: 1200px
+			width: 100%
+			margin: 0 auto 160px
+			display: grid
+			grid-template-columns: repeat(3, minmax(260px, 1fr))
+			grid-gap: 35px 50px
+			@media (max-width: $tablet)
+				grid-template-columns: 1fr
+				
+		&item
+			background: rgba(#FFF, .6)
+			box-shadow: 0px 10px 25px rgba(9, 166, 182, 0.25)
+			border-radius: 20px
+			text-align: center
+			padding: 103px 40px 55px
+			position: relative
+			@media (max-width: $tablet)
+				padding: 50px 0 40px
+				@media (max-width: $tablet)
+					&:not(:last-child)::after
+						display: none
+			h3
+				+responsive-font(1.6vw, 15px, 20px)
+			&::after
+				content: ''
+				width: 52px
+				height: 60px
+				background: no-repeat center url("data:image/svg+xml,%3Csvg width='53' height='60' viewBox='0 0 53 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.5'%3E%3Cpath d='M35.9875 32.489V33.989H37.4875H50.5784L26.1802 58.3969L1.85295 33.9892H14.995H16.4949V32.4892V1.5H35.9875V32.489ZM1.42557 33.5604C1.42615 33.561 1.42674 33.5615 1.42732 33.5621L1.42557 33.5604Z' stroke='%23D44040' stroke-width='3'/%3E%3C/g%3E%3C/svg%3E%0A")
+				+centerer(true, false)
+				top: calc(100% + 60px)
+				
+		&icon
+			height: 100px
+			width: 100px
+			margin-bottom: 40px
+		&after
+			max-width: 1200px
+			width: 100%
+			margin: 0 auto
+			text-align: center
+			+responsive-font(1.5vw, 14px, 25px)
+			position: relative
+			z-index: 2
+		&img
+			position: relative
+			margin: -70px 0 35px 37%
+			display: block
+			max-width: 63%
+			@media (max-width: $tablet)
+				margin: 0px 0 35px 18%
+				max-width: 100%
+
+.if
+	$this: &
+	padding-bottom: 90px
+	position: relative
+	overflow: hidden
+	&::before
+		content: image('spot9.svg')
+		position: absolute
+		top: 5%
+		left: 0
+		@media (max-width: $tablet)
+			transform: scale(.7) translateX(-45%)
+	&::after
+		content: image('spot10.svg')
+		position: absolute
+		bottom: 0
+		right: 0
+		@media (max-width: $tablet)
+			transform: scale(.7) translateX(45%)
+	.section-title
+		font-weight: 700
+		margin-bottom: 85px
+		@media (max-width: $tablet)
+			margin-bottom: 20px
+	&__
+		&list
+			display: grid
+			grid-template-columns: repeat(2, minmax(260px, 1fr))
+			grid-gap: 50px
+			margin-bottom: 75px
+			position: relative
+			z-index: 2
+			@media (max-width: $tablet)
+				grid-template-columns: 100%
+		&item
+			background: rgba(#FFF, .6)
+			box-shadow: 0 10px 25px rgba(9, 166, 182, 0.25)
+			border-radius: 20px
+			text-align: center
+			padding: 70px 40px
+			+responsive-font(1.3vw, 15px, 25px)
+			@media (max-width: $tablet)
+				padding: 50px 20px 40px
+			h3
+				font-weight: 600
+				@media (max-width: $tablet)
+					margin-top: 10px
+			&:not(#{$this}__item--large)
+				#{$this}__icon
+					height: 100px
+					width: 100px
+			&--
+				&large
+					padding: 110px 275px
+					+flex(stretch, center)
+					grid-column: 1/-1
+					text-align: left
+					@media (max-width: $tablet)
+						flex-direction: column
+						align-items: center
+						padding: 50px 20px 40px
+						text-align: center
+					#{$this}__icon
+						margin-right: 110px
+						flex-shrink: .9
+						@media (max-width: $tablet)
+							margin: 0
+							height: 100px
+							width: 100px
+							
+		&plus
+			font-weight: 700
+			+responsive-font(1.3vw, 14px, 25px)
+			@media (max-width: $tablet)
+				text-align: center
+			a
+				color: #15BBD1
+				&:hover
+					text-decoration: underline
+
+.care
+	position: relative
+	overflow: hidden
+	&::after
+		content: ''
+		background: image('spot11.svg') no-repeat bottom left / contain
+		display: block
+		width: 100%
+		padding-top: 26%
+		margin-top: -90px
+		@media screen and (max-width: $containerW)
+			-webkit-background-size: 150%
+			background-size: 150%
+			margin-top: 0
+			padding-top: 38%
+	&__
+		&title
+			text-align: center
+			+responsive-font(2vw, 30px, 64px)
+			font-weight: bold
+			margin-bottom: 50px
+			line-height: 1.4
+		&img
+			max-width: 665px
+			width: 100%
+			display: block
+			margin: 0 auto
+		&logo
+			position: absolute
+			left: calc(50vw - (#{$containerW} / 2) + 15px)
+			bottom: 120px
+			z-index: 1
+			@media screen and (max-width: $containerW)
+				left: 50%
+				transform: translateX(-50%)
+				bottom: 10px

@@ -1,0 +1,92 @@
+extends ../base
+
+block variables
+	- let title = 'Main';
+
+block content
+	section.first
+		.container
+			.first__row
+				.first__l
+					img(src="img/fishing.svg").first__img
+				.first__r
+					p Якщо Ви читаєте цей текст, то це означає, що
+						b Ви стали жертвою фішингової атаки
+						|  На жаль…
+	section.good
+		.container
+			.good__row
+				.good__l
+					p Але є й хороша новина.
+						b  Ця атака навчально-тренувальна☺
+				.good__r
+					img(src="img/1plus1.svg")
+	section.advise
+		.container
+			.advise__adv
+				p Організувавши таку навчальну форму, ми хочемо звернути Вашу увагу до проблеми та надати поради з елементарних правил кібербезпеки. <br>Це дозволить Вам у майбутньому самостійно оцінити «безпеку» листа, перед тим як відкрити вкладений файл або перейти за посиланням.
+			.card(data-num="#1")
+				.card__row
+					.card__l
+						img(src="img/inputs1.png").card__img
+					.card__r
+						p Коли вам приходить новий лист, зверніть увагу на <b>адресу електронної пошти</b> відправника, будь то конкретна людина або організація, адже в більшості випадків адреси, з якими ви спілкуєтеся або від яких отримуєте розсилки, вам знайомі
+			.card(data-num="#2")
+				.card__row
+					.card__l
+						img(src="img/inputs2.png").card__img
+					.card__r
+						p Насторожити вас повинні і такі звернення до вас, як <b>«користувач», «клієнт»</b> або <b>«одержувач»</b>.<br> Зверніть увагу також на <b>дату і час</b>.
+			.advise__row
+				.advise__l
+					img(src="img/fish.svg", alt="")
+				.advise__r(data-num="#3"): p Формулюючи тему фішингових листів, його автори часто намагаються створити <b>відчуття терміновості</b>, щоб спровокувати користувача на необдумані дії, наприклад, це можуть бути листи від вашого «начальника» або «фінансового директора», який вимагає негайно <b>заповнити документ</b> або <b>оформити оплату рахунків</b> - такі найчастіші випадки шахрайства, яким піддаються співробітники компаній, прагнучи якомога швидше виконати розпорядження вищого керівництва.
+					br
+					| Текст фішингового листа може містити орфографічні і граматичні помилки, також зверніть увагу на оформлення листа
+	section.move
+		.container
+			h2.section-title Як правило, фішинг націлений на те, <br>щоб <b>ви зробили будь-яку дію</b>:
+			ul.move__moves
+				li.move__item
+					svg.move__icon: use(xlink:href="img/sprite.svg#click")
+					h3 Перейшли за<br> посиланням
+				li.move__item
+					svg.move__icon: use(xlink:href="img/sprite.svg#box")
+					h3 Відкрили файл
+				li.move__item
+					svg.move__icon: use(xlink:href="img/sprite.svg#refresh")
+					h3   Натиснули на кнопку «оновити зараз», тощо
+			.move__after Після чого почнеться приховане завантаження шкідливого ПЗ, або ж ви потрапите на фішинговий сайт, де у вас зажадають ввести персональні дані
+			img(src="img/catch.svg", alt="").move__img
+
+			.card
+				.card__move-text: p За багатьма фішинговими схемами вам пропонується відкрити вкладення, яке може містити вірус або шпигунське програмне забезпечення. Якщо шпигунське програмне забезпечення завантажено на комп’ютер, воно <b>може записувати натискання клавіш</b>, яке ви використовуєте для входу до <b>своїх особистих облікових записів</b> в Інтернеті.
+				.card__move-img-wrap
+					picture
+						source(srcset="img/mail-mob.png", media="(max-width: 768px)")
+						img(src="img/mail.png", alt="").card__move-img
+	section.if
+		.container
+			h2.section-title Запам’ятайте наступне. Якщо Ви отримали підозрілий лист:
+			ul.if__list
+				li.if__item
+					svg.if__icon: use(xlink:href="img/sprite.svg#id")
+					h3 ніколи не відповідайте на повідомлення, які містять запит особистих даних
+				li.if__item
+					svg.if__icon: use(xlink:href="img/sprite.svg#link")
+					h3 не переходьте за посиланнями у листі
+				li.if__item
+					svg.if__icon: use(xlink:href="img/sprite.svg#mail")
+					h3 не надсилайте особисті відомості у звичайних повідомленнях електронної пошти
+				li.if__item
+					svg.if__icon: use(xlink:href="img/sprite.svg#spam")
+					h3 листи, з поміткою в темі [SPAM] перевіряйте ретельно або видаляйте, не відкриваючи
+				li.if__item.if__item--large
+					svg.if__icon: use(xlink:href="img/sprite.svg#save-mail")
+					h3 Також, ніколи не розміщуйте у відкритому вигляді в Інтернет вашу корпоративну електрону адресу, і не використовуйте її для реєстрації на сумнівних сайтах.
+			.if__plus Додатково - <a target="_blank" href="https://www.youtube.com/watch?v=mUHqwoIPvUk">навчальне відео від Google</a> або на <a target="_blank" href="http://my.1plus1.tv/news/index.php?ID=159146">внутрішньому сайті</a>.
+	section.care
+		.container
+			.care__title Будьте уважні та обережні!
+			img(src="img/be-safe.svg", alt="").care__img
+			a(href="#").care__logo: img(src="img/logo.png" alt="1+1")
