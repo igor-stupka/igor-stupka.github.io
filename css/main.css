@@ -3,32 +3,28 @@
   font-family: 'OpenSans';
   font-style: normal;
   font-weight: 400;
-  src: local("Open Sans Regular"), local("OpenSans-Regular"), url("../fonts/opensans.woff2") format("woff2"), url("../fonts/opensans.woff") format("woff");
-  unicode-range: U+0020-007E, U+0410-044F, U+0406-0407, U+0456-0457; }
+  src: local("Open Sans Regular"), local("OpenSans-Regular"), url("../fonts/opensans.woff2") format("woff2"), url("../fonts/opensans.woff") format("woff"); }
 
 @font-face {
   font-display: swap;
   font-family: 'OpenSans';
   font-style: normal;
   font-weight: 600;
-  src: local("Open Sans Semibold"), local("OpenSans-Semibold"), url("../fonts/opensanssemibold.woff2") format("woff2"), url("../fonts/opensanssemibold.woff") format("woff");
-  unicode-range: U+0020-007E, U+0410-044F, U+0406-0407, U+0456-0457; }
+  src: local("Open Sans Semibold"), local("OpenSans-Semibold"), url("../fonts/opensanssemibold.woff2") format("woff2"), url("../fonts/opensanssemibold.woff") format("woff"); }
 
 @font-face {
   font-display: swap;
   font-family: 'OpenSans';
   font-style: normal;
   font-weight: 700;
-  src: local("Open Sans Bold"), local("OpenSans-Bold"), url("../fonts/opensansbold.woff2") format("woff2"), url("../fonts/opensansbold.woff") format("woff");
-  unicode-range: U+0020-007E, U+0410-044F, U+0406-0407, U+0456-0457; }
+  src: local("Open Sans Bold"), local("OpenSans-Bold"), url("../fonts/opensansbold.woff2") format("woff2"), url("../fonts/opensansbold.woff") format("woff"); }
 
 @font-face {
   font-display: swap;
   font-family: 'OpenSans';
   font-style: normal;
   font-weight: 900;
-  src: local("Open Sans Extrabold"), local("OpenSans-Extrabold"), url("../fonts/opensansextrabold.woff2") format("woff2"), url("../fonts/opensansextrabold.woff") format("woff");
-  unicode-range: U+0020-007E, U+0410-044F, U+0406-0407, U+0456-0457; }
+  src: local("Open Sans Extrabold"), local("OpenSans-Extrabold"), url("../fonts/opensansextrabold.woff2") format("woff2"), url("../fonts/opensansextrabold.woff") format("woff"); }
 
 body {
   font: 400 16px/1.7 "OpenSans", "Segoe UI", "Roboto Slab", "Droid Serif", "AvenirNext", "Avenir", "Georgia", sans-serif;
@@ -235,7 +231,8 @@ body.overflow {
     content: url("../img/spot2.svg");
     position: absolute;
     top: 0;
-    left: 0; }
+    left: 0;
+    opacity: .3; }
     @media (max-width: 1024px) {
       .advise::before {
         display: none; } }
@@ -256,7 +253,7 @@ body.overflow {
       color: #FFF;
       text-shadow: 0px -2px 25px rgba(9, 166, 182, 0.25);
       position: absolute;
-      bottom: calc(100% - 9px);
+      bottom: calc(100% - 11px);
       left: 30px;
       line-height: 1;
       opacity: .6; }
@@ -660,7 +657,10 @@ body.overflow {
     z-index: 1; }
     @media screen and (max-width: 1426px) {
       .care__logo {
-        bottom: 10px; } }
+        bottom: 30px; } }
+    @media screen and (max-width: 425px) {
+      .care__logo {
+        bottom: 15px; } }
 
 .container {
   max-width: 1426px;
