@@ -103,7 +103,6 @@ body.overflow {
   .first__r {
     max-width: 470px; }
     .first__r p {
-      font-weight: 500;
       font-size: 1.8vw; }
       @media (max-width: 833.33333px) {
         .first__r p {
@@ -166,8 +165,7 @@ body.overflow {
         text-align: center; } }
     .good__l p {
       color: rgba(0, 0, 0, 0.7);
-      font-size: 1.8vw;
-      font-weight: 500; }
+      font-size: 1.8vw; }
       @media (max-width: 833.33333px) {
         .good__l p {
           font-size: 15px; } }
@@ -399,7 +397,6 @@ body.overflow {
   text-align: center;
   font-size: 2.2vw;
   line-height: 1.5;
-  font-weight: 500;
   margin-bottom: 110px;
   position: relative;
   z-index: 2; }
