@@ -241,16 +241,6 @@ body.overflow {
     @media (max-width: 1024px) {
       .advise::before {
         display: none; } }
-  .advise::after {
-    content: url("../img/spot3.svg");
-    position: absolute;
-    top: auto;
-    right: 0; }
-    @media (max-width: 1024px) {
-      .advise::after {
-        top: auto;
-        bottom: 40%;
-        transform: scale(0.5) translateX(90%); } }
   .advise .card {
     padding: 100px 230px;
     margin-bottom: 170px; }
@@ -451,6 +441,16 @@ body.overflow {
       .move::after {
         transform: scale(0.7) translateX(-80%);
         opacity: .3; } }
+  .move .container {
+    position: relative; }
+    .move .container::after {
+      content: url("../img/spot3.svg");
+      position: absolute;
+      right: calc(50% - 1300px);
+      top: 10%; }
+      @media (max-width: 1024px) {
+        .move .container::after {
+          bottom: 40%; } }
   .move .section-title {
     max-width: 800px;
     width: 100%;
@@ -533,15 +533,8 @@ body.overflow {
   padding-bottom: 90px;
   position: relative;
   overflow-x: hidden;
-  overflow-y: visible; }
-  .if::before {
-    content: url("../img/spot9.svg");
-    position: absolute;
-    top: 5%;
-    left: 0; }
-    @media (max-width: 1024px) {
-      .if::before {
-        transform: scale(0.7) translateX(-45%); } }
+  overflow-y: visible;
+  background: url("../img/spot9.svg") left 5% no-repeat/contain; }
   .if::after {
     content: url("../img/spot10.svg");
     position: absolute;
